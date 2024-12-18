@@ -1,9 +1,22 @@
+import json
+from typing import List
 from fastapi import FastAPI
 from starlette.background import BackgroundTasks
 import redis
 from redis_util import get_user_ids, putUser, send_query
 from fastapi.middleware.cors import CORSMiddleware
 from redis_util import loadRedis
+from fastapi import FastAPI, Body
+from pydantic import BaseModel
+
+
+class Item(BaseModel):
+    id: int
+    type: str=''
+    rarity: str=''
+    name: str=''
+    description: str=''
+    details: object=''
 
 app = FastAPI()
 redis_url = "http://localhost:6379"
@@ -46,6 +59,13 @@ async def root(api_key, name):
     print(api_key)
     await putUser(name, api_key, app.client)
     return {'user': name}
+
+@app.api_route("/putItem", methods=["POST"])
+async def root(items:List[Item]):
+    print('Starting putUser...')
+    items_json = [item.model_dump() for item in items]
+    await loadRedis('items', items_json, app.client)
+    return {'items_inserted': len(items)}
 
 @app.get("/user")
 async def root(name):
