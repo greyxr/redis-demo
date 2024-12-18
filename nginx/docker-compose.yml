@@ -1,0 +1,97 @@
+version: '3'
+
+services:
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - fastapi1
+      - fastapi2
+      - fastapi3
+      - redis
+
+  redis:
+    image: redis/redis-stack:latest
+    container_name: redis_stack
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
+
+  db_script:
+    build: 
+      context: ../server
+    #   dockerfile: Dockerfile
+    # ports:
+    #   - "8005:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./redis_setup.sh:/usr/local/bin/redis_setup.sh
+    entrypoint: ["sh", "/usr/local/bin/redis_setup.sh"]
+
+  fastapi1:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  fastapi2:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+  
+  fastapi3:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  fastapi4:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  fastapi5:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8004:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  fastapi6:
+    build: 
+      context: ../server
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8000"
+    depends_on:
+      redis:
+        condition: service_healthy

@@ -1,0 +1,149 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #282c34;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.App-main {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.results {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.horizontal-slider {
+  width: 250px;
+  max-width: 700px;
+  height: 50px;
+  margin: 20px auto;
+}
+
+.horizontal-slider .example-thumb {
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  background: #ffffff;
+  border: 5px solid grey;
+  border-radius: 100%;
+  display: block;
+  box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+}
+
+.thumb-value {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #4caf50;
+}
+
+.horizontal-slider .example-thumb.active {
+  background-color: grey;
+}
+
+.horizontal-slider .example-track {
+  position: relative;
+  background: #ddd;
+}
+
+.horizontal-slider .example-track.example-track-0 {
+  background: grey;
+}
+
+.horizontal-slider .example-track {
+  top: 20px;
+  height: 4px;
+}
+
+.horizontal-slider .example-thumb {
+  top: 12px;
+  width: 10px;
+  outline: none;
+  height: 10px;
+  line-height: 38px;
+}
+
+.slider-container {
+  width: 700px;
+  margin: 20px auto;
+  background-color: #3a3f4b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.slider-container summary {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #4a4f5b;
+  color: white;
+  font-weight: bold;
+  outline: none;
+}
+
+.slider-container summary::-webkit-details-marker {
+  display: none;
+}
+
+.slider-container summary::after {
+  content: '\25BC';
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.slider-container[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}

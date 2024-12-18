@@ -1,0 +1,12 @@
+pymongo
+fastapi
+starlette
+requests
+redis
+uvicorn
+apscheduler
+python-dotenv
+redis>=4.2.0
+aioredis
+redis-py-cluster
+httpx
