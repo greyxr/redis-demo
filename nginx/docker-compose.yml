@@ -66,32 +66,32 @@ services:
       redis:
         condition: service_healthy
 
-  fastapi4:
-    build: 
-      context: ../server
-      dockerfile: Dockerfile
-    ports:
-      - "8003:8000"
-    depends_on:
-      redis:
-        condition: service_healthy
+  # fastapi4:
+  #   build: 
+  #     context: ../server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8003:8000"
+  #   depends_on:
+  #     redis:
+  #       condition: service_healthy
 
-  fastapi5:
-    build: 
-      context: ../server
-      dockerfile: Dockerfile
-    ports:
-      - "8004:8000"
-    depends_on:
-      redis:
-        condition: service_healthy
+  # fastapi5:
+  #   build: 
+  #     context: ../server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8004:8000"
+  #   depends_on:
+  #     redis:
+  #       condition: service_healthy
 
-  fastapi6:
-    build: 
-      context: ../server
-      dockerfile: Dockerfile
-    ports:
-      - "8005:8000"
-    depends_on:
-      redis:
-        condition: service_healthy
+  # fastapi6:
+  #   build: 
+  #     context: ../server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8005:8000"
+  #   depends_on:
+  #     redis:
+  #       condition: service_healthy

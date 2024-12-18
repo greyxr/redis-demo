@@ -4,7 +4,7 @@ baseUrl = 'https://api.guildwars2.com/v2'
 skinsUrl = baseUrl + '/skins'
 accountSkinsUrl = baseUrl + '/account/skins'
 pageSize = 200
-api_key = 'C5A11C84-AE63-DC4F-94B3-F8BAB29A1990D798571D-982B-409A-813A-A220C218A7E9'
+api_key = 'api_key_here'
 
 def paginatedLoad(url, auth=None):
     itemArray = []
